@@ -13,6 +13,7 @@
 		F44DE4DC214E88A000E3A7FB /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F44DE4DA214E88A000E3A7FB /* MainMenu.xib */; };
 		F44DE4E5214E88D500E3A7FB /* StatusMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44DE4E4214E88D500E3A7FB /* StatusMenuController.swift */; };
 		F44DE4E7214E904700E3A7FB /* coinmonitor.icns in Resources */ = {isa = PBXBuildFile; fileRef = F44DE4E6214E904700E3A7FB /* coinmonitor.icns */; };
+		F4D091612156897E00109261 /* PrefsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D091602156897E00109261 /* PrefsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		F44DE4DE214E88A000E3A7FB /* CoinMonitor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoinMonitor.entitlements; sourceTree = "<group>"; };
 		F44DE4E4214E88D500E3A7FB /* StatusMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusMenuController.swift; sourceTree = "<group>"; };
 		F44DE4E6214E904700E3A7FB /* coinmonitor.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = coinmonitor.icns; sourceTree = "<group>"; };
+		F4D091602156897E00109261 /* PrefsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				F44DE4DD214E88A000E3A7FB /* Info.plist */,
 				F44DE4DE214E88A000E3A7FB /* CoinMonitor.entitlements */,
 				F44DE4E4214E88D500E3A7FB /* StatusMenuController.swift */,
+				F4D091602156897E00109261 /* PrefsViewController.swift */,
 			);
 			path = CoinMonitor;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F44DE4E5214E88D500E3A7FB /* StatusMenuController.swift in Sources */,
+				F4D091612156897E00109261 /* PrefsViewController.swift in Sources */,
 				F44DE4D7214E889F00E3A7FB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

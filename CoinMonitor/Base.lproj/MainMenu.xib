@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -15,6 +17,12 @@
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <menu id="OmY-jq-UjK">
             <items>
+                <menuItem title="Prefs" id="mqD-V3-4Cr">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="prefsClick:" target="IJN-Oz-5db" id="eya-MF-Ss8"/>
+                    </connections>
+                </menuItem>
                 <menuItem title="Quit" id="RZb-F9-MTo">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
@@ -26,7 +34,125 @@
         <customObject id="IJN-Oz-5db" customClass="StatusMenuController" customModule="CoinMonitor" customModuleProvider="target">
             <connections>
                 <outlet property="menu" destination="OmY-jq-UjK" id="zeA-dq-6N6"/>
+                <outlet property="prefs" destination="0gs-ZT-LnW" id="KCX-JV-VyI"/>
             </connections>
         </customObject>
+        <customObject id="DyM-08-P3n" customClass="PrefsViewController" customModule="CoinMonitor" customModuleProvider="target">
+            <connections>
+                <outlet property="scrollView" destination="HX6-Fn-fod" id="7Jt-th-IB5"/>
+                <outlet property="sourceItems" destination="ZFQ-zf-a4N" id="6um-Q5-h82"/>
+                <outlet property="targetItems" destination="Bbz-Yf-GGF" id="6n9-6w-rN5"/>
+            </connections>
+        </customObject>
+        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="0gs-ZT-LnW">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <rect key="contentRect" x="163" y="199" width="480" height="270"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+            <view key="contentView" id="zv2-Rc-i1M">
+                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="M3x-9s-lBi">
+                        <rect key="frame" x="42" y="233" width="137" height="17"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" title="SourceCoinItems" id="Ztr-Eu-fGr">
+                            <font key="font" usesAppearanceFont="YES"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mfG-jB-ed6">
+                        <rect key="frame" x="42" y="196" width="97" height="17"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" title="TargetCoinItem" id="kIf-9a-6hO">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZFQ-zf-a4N">
+                        <rect key="frame" x="183" y="230" width="77" height="25"/>
+                        <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="zVy-EU-eUP" id="CMn-Nw-7Wu">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="menu"/>
+                            <menu key="menu" id="jaB-QO-TBU">
+                                <items>
+                                    <menuItem title="Item 1" state="on" id="zVy-EU-eUP"/>
+                                    <menuItem title="Item 2" id="Rq8-he-7fi"/>
+                                    <menuItem title="Item 3" id="081-Rq-beL"/>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                    </popUpButton>
+                    <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Bbz-Yf-GGF">
+                        <rect key="frame" x="183" y="191" width="77" height="25"/>
+                        <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="3Q3-1g-vUi" id="GyS-cR-Kc8">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="menu"/>
+                            <menu key="menu" id="QlA-or-fda">
+                                <items>
+                                    <menuItem title="Item 1" state="on" id="3Q3-1g-vUi"/>
+                                    <menuItem title="Item 2" id="Xiw-vC-7mp"/>
+                                    <menuItem title="Item 3" id="d0Y-JV-dGK"/>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                    </popUpButton>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MKi-ID-932">
+                        <rect key="frame" x="292" y="187" width="68" height="32"/>
+                        <buttonCell key="cell" type="push" title="ADD" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ZEA-LV-HsW">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="addClick:" target="DyM-08-P3n" id="cSX-MN-3s0"/>
+                        </connections>
+                    </button>
+                    <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HX6-Fn-fod">
+                        <rect key="frame" x="56" y="48" width="375" height="96"/>
+                        <clipView key="contentView" id="y3Y-Qk-Sgo">
+                            <rect key="frame" x="1" y="1" width="373" height="94"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <view fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5tO-y5-JCy">
+                                    <rect key="frame" x="0.0" y="0.0" width="358" height="79"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                            </subviews>
+                        </clipView>
+                        <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="C9L-y8-Adt">
+                            <rect key="frame" x="1" y="79" width="373" height="16"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                        <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="Qks-Db-m5P">
+                            <rect key="frame" x="358" y="1" width="16" height="94"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                    </scrollView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="HX6-Fn-fod" secondAttribute="bottom" constant="48" id="2OJ-ZN-t22"/>
+                    <constraint firstAttribute="trailing" secondItem="HX6-Fn-fod" secondAttribute="trailing" constant="49" id="AMU-7Z-dAi"/>
+                    <constraint firstItem="mfG-jB-ed6" firstAttribute="top" secondItem="M3x-9s-lBi" secondAttribute="bottom" constant="20" id="Dp1-X7-koQ"/>
+                    <constraint firstItem="mfG-jB-ed6" firstAttribute="top" secondItem="zv2-Rc-i1M" secondAttribute="top" constant="57" id="DrF-0c-992"/>
+                    <constraint firstItem="mfG-jB-ed6" firstAttribute="baseline" secondItem="Bbz-Yf-GGF" secondAttribute="baseline" id="KHk-wd-dag"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Bbz-Yf-GGF" secondAttribute="trailing" constant="20" symbolic="YES" id="RiU-PX-Gbd"/>
+                    <constraint firstItem="ZFQ-zf-a4N" firstAttribute="bottom" secondItem="M3x-9s-lBi" secondAttribute="bottom" id="VT3-jk-Mbd"/>
+                    <constraint firstItem="HX6-Fn-fod" firstAttribute="leading" secondItem="zv2-Rc-i1M" secondAttribute="leading" constant="56" id="X4w-5B-lTY"/>
+                    <constraint firstItem="ZFQ-zf-a4N" firstAttribute="leading" secondItem="Bbz-Yf-GGF" secondAttribute="leading" id="XVJ-Re-TJw"/>
+                    <constraint firstAttribute="trailing" secondItem="MKi-ID-932" secondAttribute="trailing" constant="126" id="afv-uU-3Z5"/>
+                    <constraint firstItem="Bbz-Yf-GGF" firstAttribute="leading" secondItem="mfG-jB-ed6" secondAttribute="trailing" constant="48" id="cD1-on-Y6l"/>
+                    <constraint firstItem="mfG-jB-ed6" firstAttribute="leading" secondItem="M3x-9s-lBi" secondAttribute="leading" id="gxz-Fb-l7c"/>
+                    <constraint firstItem="ZFQ-zf-a4N" firstAttribute="leading" secondItem="M3x-9s-lBi" secondAttribute="trailing" constant="8" symbolic="YES" id="iP4-iy-LEH"/>
+                    <constraint firstItem="HX6-Fn-fod" firstAttribute="top" secondItem="MKi-ID-932" secondAttribute="bottom" constant="50" id="iR4-Cx-9HP"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ZFQ-zf-a4N" secondAttribute="trailing" constant="20" symbolic="YES" id="nLo-qr-4St"/>
+                    <constraint firstItem="MKi-ID-932" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Bbz-Yf-GGF" secondAttribute="trailing" symbolic="YES" id="orZ-Ib-2Fx"/>
+                    <constraint firstItem="mfG-jB-ed6" firstAttribute="leading" secondItem="zv2-Rc-i1M" secondAttribute="leading" constant="44" id="r5i-f9-kit"/>
+                    <constraint firstItem="MKi-ID-932" firstAttribute="top" secondItem="Bbz-Yf-GGF" secondAttribute="top" id="rLF-ya-U1t"/>
+                </constraints>
+            </view>
+            <connections>
+                <outlet property="delegate" destination="mqD-V3-4Cr" id="Nrn-7p-fmp"/>
+            </connections>
+            <point key="canvasLocation" x="304" y="-45"/>
+        </window>
     </objects>
 </document>
